@@ -191,7 +191,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="WebAPIs\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -211,6 +210,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\PasswordUtility.cs" />
+    <Compile Include="ServiceProvider\CustomLoginProviderCredentials.cs" />
+    <Compile Include="WebAPIs\ApiObjects\RegisterRequest.cs" />
+    <Compile Include="WebAPIs\ApiObjects\LoginRequest.cs" />
+    <Compile Include="ServiceProvider\CustomLoginProvider.cs" />
+    <Compile Include="WebAPIs\LoginRequestController.cs" />
+    <Compile Include="WebAPIs\RegisterRequestController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
