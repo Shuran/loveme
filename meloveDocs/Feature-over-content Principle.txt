@@ -1,0 +1,3 @@
+Always create MVF first before implementing the full feature
+
+MVF: Minimal Viable Feature, which is the feature realized with minimum content.

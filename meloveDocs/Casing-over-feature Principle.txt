@@ -1,0 +1,9 @@
+When developing a feature, take into consideration of the follwing states of the app:
+<1> The app is resumed from pause (RESUME)
+<2> The app is restarted (RESTART)
+<3> The app is deleted and re-installed (REINSTALL)
+<4> The app is newly installed (INSTALL)
+<5> The app is installed in a new device with another instance running in another device (PARAINSTALL)
+<6> No Internet (NOINT)
+
+The feature is called "complete" only when the six scenarios above have been taken into full consideration and implemented.

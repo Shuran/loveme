@@ -1,0 +1,2 @@
+1. In any TODO-suspend method, if it is a save method, output the outcome to console; if it is a return method,
+return a user-defined object of the type instead of null.

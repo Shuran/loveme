@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="meloveShared.VL.LoginPage_1">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"/>
+	</ContentPage.Padding>
+	<Grid>
+		<!--Completed: Debug, Grid.RowDefinitions instead of Grid.RowDefinition. The debug console may point to strange place,
+		so pay attention to "application output"-->
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="Auto"/>
+		</Grid.ColumnDefinitions>
+
+		<Label Text="Name" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1"/>
+		<Entry x:Name="xNameEntry" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+		<Label Text="Password" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1"/>
+		<Entry x:Name="xPasswordEntry" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+		<Button Text="Login" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Clicked="onLoginButtonClicked"/>
+		<Button Text="Register" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Clicked="onRegisterButtonClicked"/>
+	</Grid>
+</ContentPage>

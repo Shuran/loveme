@@ -1,0 +1,9 @@
+In shared project, the separation of platforms shall be embedded in the functions themselves, except for very special
+conditions. That is, for example,
+
+public void SaveUserRemote(User user){
+	if(Constants.mPlatformType = PlatformType.iOS){
+		......
+	} else if ......
+}
+

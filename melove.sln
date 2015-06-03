@@ -5,11 +5,11 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "meloveService", "meloveService\meloveService.csproj", "{209FA716-A7AD-4095-BD70-C8710FC66FA7}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "meloveShared", "meloveShared\meloveShared\meloveShared.shproj", "{63052121-9531-4E87-B4E2-E628959D0EF5}"
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "meloveShared", "meloveShared\meloveShared\meloveShared.shproj", "{63052121-9531-4E87-B4E2-E628959D0EF5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "meloveShared.iOS", "meloveShared\meloveShared.iOS\meloveShared.iOS.csproj", "{129A87E3-14B9-4989-90A5-6074D5C7FFFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "meloveShared.Droid", "meloveShared\meloveShared.Droid\meloveShared.Droid.csproj", "{5ACA0385-0E60-417D-B635-15CE41FDEDA2}"
+Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "meloveShared.Droid", "meloveShared\meloveShared.Droid\meloveShared.Droid.csproj", "{5ACA0385-0E60-417D-B635-15CE41FDEDA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

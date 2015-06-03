@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -10,19 +10,54 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)VL\LoginPage-1.xaml.cs">
-      <DependentUpon>LoginPage-1.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)VL\LoginPage_1.xaml.cs">
+      <DependentUpon>LoginPage_1.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DAL\IGeneralServices\IDatabaseService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DAL\IGeneralServices\IUserService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DAL\ILocalServices\IDatabaseServiceLocal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DAL\IRemoteServices\IUserServiceRemote.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DL\GeneralServices\DatabaseService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DL\GeneralServices\UserService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DAL\IManagers\IGlobalInfoManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DAL\IManagers\IGlobalLibManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DL\Managers\GlobalInfoManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DL\Managers\GlobalLibManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DL\RemoteServices\UserServiceRemote.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DL\LocalServices\DatabaseServiceLocal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VL\HomePage_1.xaml.cs">
+      <DependentUpon>HomePage_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DL\LocalServices\UserServiceLocal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DAL\ILocalServices\IUserServiceLocal.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BL\DataObjects\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BL\Utilities\PasswordUtility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DL\ServiceAndManagerLoader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BL\Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BL\Utilities\WebConnectUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)BL\" />
     <Folder Include="$(MSBuildThisFileDirectory)DAL\" />
     <Folder Include="$(MSBuildThisFileDirectory)DL\" />
+    <Folder Include="$(MSBuildThisFileDirectory)DAL\IGeneralServices\" />
+    <Folder Include="$(MSBuildThisFileDirectory)DAL\ILocalServices\" />
+    <Folder Include="$(MSBuildThisFileDirectory)DAL\IRemoteServices\" />
+    <Folder Include="$(MSBuildThisFileDirectory)DL\LocalServices\" />
+    <Folder Include="$(MSBuildThisFileDirectory)DL\RemoteServices\" />
+    <Folder Include="$(MSBuildThisFileDirectory)DL\GeneralServices\" />
+    <Folder Include="$(MSBuildThisFileDirectory)DAL\IManagers\" />
+    <Folder Include="$(MSBuildThisFileDirectory)DL\Managers\" />
+    <Folder Include="$(MSBuildThisFileDirectory)BL\DataObjects\" />
+    <Folder Include="$(MSBuildThisFileDirectory)BL\Utilities\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)VL\LoginPage-1.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)VL\LoginPage_1.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)VL\HomePage_1.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

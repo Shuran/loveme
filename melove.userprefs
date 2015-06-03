@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="meloveShared\meloveShared.Droid\meloveShared.Droid.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (Lollipop)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="meloveShared\meloveShared.Droid\Properties\AndroidManifest.xml">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.MonoForAndroid_API_10" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\Shuran\Desktop\Projects\Melove\meloveShared\meloveShared\DL\RemoteServices\UserServiceRemote.cs">
     <Files>
-      <File FileName="meloveShared\meloveShared\App.cs" Line="1" Column="1" />
-      <File FileName="meloveShared\meloveShared.Droid\Properties\AndroidManifest.xml" Line="1" Column="1" />
+      <File FileName="meloveShared\meloveShared\BL\Utilities\WebConnectUtility.cs" Line="54" Column="16" />
+      <File FileName="c:\Users\Shuran\Desktop\Projects\Melove\meloveShared\meloveShared\DL\RemoteServices\UserServiceRemote.cs" Line="41" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

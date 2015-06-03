@@ -1,0 +1,13 @@
+In using TDD method, compilation always comes with first priority, because incomplete functionality can always be bookmarked
+and develpers can always come back later. Therefore, the good habit is to fulfill functionality with simplest implementation
+and mark with TODO, and come back later.
+
+For example,
+//TODO-working-on: Obtain the user information from remote server
+//TODO-suspend: Construct the mGlobalInfoManager Object
+//TODO-suspend: Construct the mUserServiceRemote Object
+//TODO-working-on: Bind the name and password parameters
+ServiceAndManagerLoader.mGlobalInfoManager.mCurrentUser = await ServiceAndManagerLoader.mUserServiceRemote.GetUser(name,password);
+
+In this piece of code, mCurrentUser and GetUser functions are not functional, but compilation goes through.
+And if we navigate into where the implementation should be for these two object/function, there is a TODO mark there.

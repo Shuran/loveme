@@ -1,0 +1,4 @@
+Whenever the convenience shall be replaced by meaningful structure, do it.
+
+Meaningful Structure: Structure where every segment or layer has a literal meaning, 
+and all the content inside the segment/layer belongs to the literal meaning.

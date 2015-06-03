@@ -1,0 +1,59 @@
+﻿using System;
+using System.Threading.Tasks;
+using System.Json;
+using System.Net;
+using System.IO;
+using Microsoft.WindowsAzure.MobileServices;
+using System.Net.Http;
+
+namespace meloveShared.BL
+{
+	public class WebConnectUtility
+	{
+		public static MobileServiceClient mMobileService = new MobileServiceClient
+		(
+				Constants.mServerUrl,
+				Constants.mApplicationKey
+		);
+
+		public WebConnectUtility ()
+		{
+			
+		}
+
+		public async Task<JsonValue> WebRestGet(string pUrl)
+		{
+			// How to call a rest web service: http://developer.xamarin.com/recipes/android/web_services/consuming_services/call_a_rest_web_service/
+			HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create (new Uri (pUrl));
+			request.ContentType = "application/json";
+			request.Method = "GET";
+			try
+			{
+				//'using' statement for automatic and safe GC
+				//http://www.codeproject.com/Articles/6564/Understanding-the-using-statement-in-C
+				//Dispose
+				//http://forums.asp.net/t/1879665.aspx?type+used+in+using+statement+must+be+implicitly+convertible+to+System+IDisposable
+				using (WebResponse response = await request.GetResponseAsync ()) 
+				{
+					using (Stream stream = response.GetResponseStream()) 
+					{
+						JsonValue jsonDoc = await Task.Run (()=>JsonObject.Load(stream));
+						return jsonDoc;
+					}
+				}
+			}
+			catch(HttpListenerException e)
+			{
+				Console.WriteLine (e.Message);
+				return null;
+			}
+		}
+
+		public async Task<object> WebAzurePost(string pUrl)
+		{
+			return null;
+		}
+
+	}
+}
+
