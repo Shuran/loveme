@@ -26,7 +26,7 @@ namespace meloveShared.DL
 
 		//Interface Implementation
 		//User Data
-		public User mCurrentUser { get; set; }
+		public LoggedInUser mCurrentUser { get; set; }
 	}
 }
 

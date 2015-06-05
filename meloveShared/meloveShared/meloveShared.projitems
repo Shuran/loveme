@@ -31,11 +31,13 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)DL\LocalServices\UserServiceLocal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DAL\ILocalServices\IUserServiceLocal.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)BL\DataObjects\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BL\Utilities\PasswordUtility.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DL\ServiceAndManagerLoader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BL\Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BL\Utilities\WebConnectUtility.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BL\DataObjects\LoggedInUser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BL\DataObjects\WebObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BL\DataObjects\WebObjects\LoginRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)BL\" />
@@ -51,6 +53,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)DL\Managers\" />
     <Folder Include="$(MSBuildThisFileDirectory)BL\DataObjects\" />
     <Folder Include="$(MSBuildThisFileDirectory)BL\Utilities\" />
+    <Folder Include="$(MSBuildThisFileDirectory)BL\DataObjects\WebObjects\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)VL\LoginPage_1.xaml">

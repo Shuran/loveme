@@ -4,8 +4,8 @@ namespace meloveShared.BL
 {
 	public static class Constants
 	{
-		public static string mServerUrl = "";
-		public static string mApplicationKey = "";
+		public static string mServerUrl = "https://melove.azure-mobile.net/";
+		public static string mApplicationKey = "CoyDdlBgmTSVTAGeUyXvuLHXLqYwLk11";
 
 		public static PlatformType mPlatformType
 		{

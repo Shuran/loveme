@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
 using meloveShared.BL;
+using Newtonsoft.Json.Linq;
 
 namespace meloveShared.DAL
 {
 	public interface IUserServiceRemote : IUserService
 	{
-		Task<User> GetUserRemote(string pName, string pPassword);
+		Task<JObject> GetUserRemote(string pName, string pPassword);
 	}
 }
 

@@ -6,7 +6,7 @@ namespace meloveShared.DAL
 {
 	public interface IUserServiceLocal
 	{
-		void SaveUserLocal(User pUser);
+		void SaveUserLocal(LoggedInUser pLoggedInUser, string pPassword);
 	}
 }
 

@@ -1,9 +1,14 @@
 ﻿<Properties StartupItem="meloveShared\meloveShared.Droid\meloveShared.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.MonoForAndroid_API_10" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\Shuran\Desktop\Projects\Melove\meloveShared\meloveShared\DL\RemoteServices\UserServiceRemote.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="meloveShared\meloveShared\BL\Constants.cs">
     <Files>
-      <File FileName="meloveShared\meloveShared\BL\Utilities\WebConnectUtility.cs" Line="54" Column="16" />
-      <File FileName="c:\Users\Shuran\Desktop\Projects\Melove\meloveShared\meloveShared\DL\RemoteServices\UserServiceRemote.cs" Line="41" Column="35" />
+      <File FileName="meloveShared\meloveShared\BL\Utilities\WebConnectUtility.cs" Line="56" Column="75" />
+      <File FileName="c:\Users\Shuran\Desktop\Projects\Melove\meloveShared\meloveShared\DL\RemoteServices\UserServiceRemote.cs" Line="1" Column="1" />
+      <File FileName="meloveShared\meloveShared\BL\DataObjects\LoginRequest.cs" Line="1" Column="1" />
+      <File FileName="meloveShared\meloveShared\BL\Constants.cs" Line="20" Column="34" />
+      <File FileName="meloveShared\meloveShared\DAL\IRemoteServices\IUserServiceRemote.cs" Line="1" Column="1" />
+      <File FileName="meloveShared\meloveShared\BL\DataObjects\User.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\Shuran\Desktop\Projects\Melove\meloveShared\meloveShared\VL\LoginPage_1.xaml.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

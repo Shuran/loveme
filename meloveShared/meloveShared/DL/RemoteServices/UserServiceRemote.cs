@@ -5,6 +5,7 @@ using meloveShared.DAL;
 using System.Net;
 using System.IO;
 using System.Json;
+using Newtonsoft.Json.Linq;
 
 namespace meloveShared.DL
 {
@@ -29,16 +30,18 @@ namespace meloveShared.DL
 		}
 
 		//Implementation of interface
-		public async Task<User> GetUserRemote(string pName, string pPassword)
+		//TODO: Make the returned data more of the specific type
+		public async Task<JObject> GetUserRemote(string pName, string pPassword)
 		{
 			WebConnectUtility webUtil = new WebConnectUtility ();
 
-			//TODO-working-on: Functionalize GetUser
-			string url = "";
-			JsonValue jsonValue = await webUtil.WebRestGet (url);
+			//Completed: Functionalize GetUser
+			LoginRequest loginRequest = new LoginRequest (pName, pPassword); 
+			JObject loginResult = await webUtil.WebAzurePost("LoginRequest",loginRequest);
+			Console.WriteLine (loginResult.ToString ());
+			return loginResult;
 
-			Console.WriteLine (jsonValue.ToString());
-			return new User ("name", "pd");
+			//return new User ("name", "pd");
 		}
 	}
 }

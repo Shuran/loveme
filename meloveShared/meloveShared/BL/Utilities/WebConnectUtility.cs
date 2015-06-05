@@ -5,6 +5,7 @@ using System.Net;
 using System.IO;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Net.Http;
+using Newtonsoft.Json.Linq;
 
 namespace meloveShared.BL
 {
@@ -49,9 +50,19 @@ namespace meloveShared.BL
 			}
 		}
 
-		public async Task<object> WebAzurePost(string pUrl)
+		//TODO-working: Make the input parameters and returned data more specific to the defined type
+		public async Task<JObject> WebAzurePost(string pWebApi, WebObject pRequest)
 		{
-			return null;
+			try
+			{
+				JObject pResult = await mMobileService.InvokeApiAsync<WebObject,JObject>(pWebApi,pRequest);
+				return pResult;
+			}
+			catch(MobileServiceInvalidOperationException e) 
+			{
+				Console.WriteLine (e.Message);
+				return null;
+			}
 		}
 
 	}

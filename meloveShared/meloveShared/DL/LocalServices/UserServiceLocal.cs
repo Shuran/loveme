@@ -28,15 +28,15 @@ namespace meloveShared.DL
 		}
 
 		//Implementation of Interface
-		public void SaveUserLocal(User pUser)
+		public void SaveUserLocal(LoggedInUser pLoggedInUser, string pPassword)
 		{
 			PasswordUtility pdUtil = new PasswordUtility();
 
 			//Completed: Functionalize SaveUser
 			//How to save user settings: http://developer.xamarin.com/guides/cross-platform/xamarin-forms/working-with/app-lifecycle/#Properties_Dictionary
-			Application.Current.Properties["user_name"] = pUser.mName;
+			Application.Current.Properties["user_name"] = pLoggedInUser.mName;
 			//Completed: Encrypt password
-			Application.Current.Properties ["user_pd_enc"] = pdUtil.EncryptToString(pUser.mPassword); 
+			Application.Current.Properties ["user_pd_enc"] = pdUtil.EncryptToString(pPassword); 
 
 			Console.WriteLine ((String)Application.Current.Properties ["user_name"] + (String)Application.Current.Properties ["user_pd_enc"]);
 		}
