@@ -38,6 +38,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)BL\DataObjects\LoggedInUser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BL\DataObjects\WebObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BL\DataObjects\WebObjects\LoginRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GCL\LoginPageController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)BL\" />
@@ -54,6 +55,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)BL\DataObjects\" />
     <Folder Include="$(MSBuildThisFileDirectory)BL\Utilities\" />
     <Folder Include="$(MSBuildThisFileDirectory)BL\DataObjects\WebObjects\" />
+    <Folder Include="$(MSBuildThisFileDirectory)GCL\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)VL\LoginPage_1.xaml">

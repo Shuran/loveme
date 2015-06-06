@@ -6,6 +6,7 @@ using System.IO;
 using Microsoft.WindowsAzure.MobileServices;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace meloveShared.BL
 {

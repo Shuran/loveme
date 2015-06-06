@@ -8,48 +8,50 @@ using meloveShared.DAL;
 using meloveShared.BL;
 using meloveShared.DL;
 using Newtonsoft.Json.Linq;
+using meloveShared.GCL;
+using System.Threading;
 
 namespace meloveShared.VL
 {
 	public partial class LoginPage_1 : ContentPage
 	{
+		public static LoginPageController loginPageController;
+
 		public LoginPage_1()
 		{
 			//To use the initializecomponent, the xaml has to set the x:class parameter to this class
 			InitializeComponent();
+			loginPageController = new LoginPageController ();
 		}
 
 		// TODO-working-on: Implement the login event handler
-		async void onLoginButtonClicked(object sender, EventArgs args)
+		void onLoginButtonClicked(object sender, EventArgs args)
 		{
-			//TODO-suspend: Obtain the user information from remote server
-			//TODO-suspend: Construct the mGlobalInfoManager Object
-			//TODO-suspend: Construct the mUserServiceRemote Object
-			//Completed: Bind the text fields
-			//TODO: Extract the info from the returned http message and convert it to LoggedInUser
-
-			//How to deal with Json: https://components.xamarin.com/view/json.net
-			JObject loggedInUserJson = await ServiceAndManagerLoader.mUserServiceRemote.GetUserRemote(xNameEntry.Text,xPasswordEntry.Text);
-			Console.WriteLine ("ShuranSang: "+loggedInUserJson.ToString ());
-
-			/*
-			if (!isLoginJsonValid(loggedInUserJson)) 
+			if(loginPageController.loginFlag)
 			{
-				await DisplayAlert ("X", "X", "X");
-			} 
-			else if (!isLoginValid(loggedInUserJson))
-			{
-				
+				//Use of Wait: https://msdn.microsoft.com/zh-cn/library/system.threading.tasks.task.wait(v=vs.110).aspx
+				//If we use "async" in front of delegate, the new task is constructed to be running in the same thread, instead of a new one
+				//Callback on original thread: http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/part_5_-_practical_code_sharing_strategies/
+
+				Task.Factory.StartNew (delegate {
+					loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text).Start();
+					loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text).Wait();
+				}).ContinueWith (new Action<Task> (delegate {
+					loginCallBack ();
+				}),TaskScheduler.FromCurrentSynchronizationContext());
+
+
+				/*
+				loginPageController.logUserInNormal (xNameEntry.Text, xPasswordEntry.Text).ContinueWith (
+					new Action<Task> (delegate {
+						loginCallBack ();
+					})
+				);
+				loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text).Start();
+				loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text).Wait();
+				*/
+
 			}
-			else
-			{
-				ServiceAndManagerLoader.mGlobalInfoManager.mCurrentUser = loginJsonInterpret (loggedInUserJson);
-				//Completed: Construct the mUserServiceLocal Object
-				//Completed: Store user info for restoration of data after RESTART
-				ServiceAndManagerLoader.mUserServiceLocal.SaveUserLocal (ServiceAndManagerLoader.mGlobalInfoManager.mCurrentUser,xPasswordEntry.Text);
-				//Completed: Open the new page upon logged in
-				await Navigation.PushModalAsync(new HomePage_1());
-			}*/
 		}
 
 		// TODO: Implement the register event handler
@@ -58,19 +60,11 @@ namespace meloveShared.VL
 			
 		}
 
-		LoggedInUser loginJsonInterpret(JObject pLoggedInUserJson)
+		//When will the callback be executed: http://stackoverflow.com/questions/11397163/continuewith-a-task-on-the-main-thread
+		void loginCallBack()
 		{
-			return null;
-		}
-
-		bool isLoginJsonValid(JObject pLoggedInUserJson)
-		{
-			return true;
-		}
-
-		bool isLoginValid(JObject pLoggedInUserJson)
-		{
-			return true;
+			//Completed: Open the new page upon logged in
+			Navigation.PushAsync(new HomePage_1());
 		}
 	}
 }
