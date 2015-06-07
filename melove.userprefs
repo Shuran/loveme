@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="meloveShared\meloveShared.Droid\meloveShared.Droid.csproj">
+﻿<Properties StartupItem="meloveShared/meloveShared.Droid/meloveShared.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (Lollipop)" />
   <MonoDevelop.Ide.Workbench ActiveDocument="meloveShared\meloveShared\BL\Utilities\WebConnectUtility.cs">
     <Files>

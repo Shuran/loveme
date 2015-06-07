@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using meloveShared.DL;
 using System.Threading;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace meloveShared.GCL
 {
@@ -12,12 +13,12 @@ namespace meloveShared.GCL
 
 		public LoginPageController ()
 		{
-			loginFlag = true;
+			this.loginFlag = true;
 		}
 
 		public async Task logUserInNormal(string pUserName, string pPassword)
 		{
-			loginFlag = false;
+			this.loginFlag = false;
 			//TODO-suspend: Obtain the user information from remote server
 			//TODO-suspend: Construct the mGlobalInfoManager Object
 			//TODO-suspend: Construct the mUserServiceRemote Object
@@ -42,8 +43,11 @@ namespace meloveShared.GCL
 				//Completed: Store user info for restoration of data after RESTART
 				ServiceAndManagerLoader.mUserServiceLocal.SaveUserLocal (ServiceAndManagerLoader.mGlobalInfoManager.mCurrentUser,xPasswordEntry.Text);
 			}*/
+		}
 
-			loginFlag = true;
+		public void releaseLogInTask()
+		{
+			this.loginFlag = true;
 		}
 	}
 }
