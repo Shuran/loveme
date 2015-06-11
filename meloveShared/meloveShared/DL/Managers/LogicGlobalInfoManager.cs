@@ -4,23 +4,23 @@ using meloveShared.BL;
 
 namespace meloveShared.DL
 {
-	public class GlobalInfoManager : IGlobalInfoManager
+	public class LogicGlobalInfoManager : ILogicGlobalInfoManager
 	{
 		//Singleton Set-up
-		private static GlobalInfoManager mGlobalInfoManager;
-		public static GlobalInfoManager mInstance
+		private static LogicGlobalInfoManager mGlobalInfoManager;
+		public static LogicGlobalInfoManager mInstance
 		{
 			get
 			{
 				if (mGlobalInfoManager==null) 
 				{
-					mGlobalInfoManager = new GlobalInfoManager ();
+					mGlobalInfoManager = new LogicGlobalInfoManager ();
 				}
 
 				return mGlobalInfoManager;
 			}
 		}
-		private GlobalInfoManager ()
+		private LogicGlobalInfoManager ()
 		{
 		}
 

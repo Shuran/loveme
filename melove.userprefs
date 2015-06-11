@@ -1,14 +1,24 @@
 ﻿<Properties StartupItem="meloveShared/meloveShared.Droid/meloveShared.Droid.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 5 (Lollipop)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="meloveShared\meloveShared\BL\Utilities\WebConnectUtility.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.AVD_for_Nexus_10_by_Google" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="meloveShared/meloveShared/DL/RemoteServices/UserServiceRemote.cs">
     <Files>
-      <File FileName="meloveShared\meloveShared\BL\Utilities\WebConnectUtility.cs" Line="58" Column="1" />
-      <File FileName="c:\Users\Shuran\Desktop\Projects\Melove\meloveShared\meloveShared\DL\RemoteServices\UserServiceRemote.cs" Line="1" Column="1" />
-      <File FileName="meloveShared\meloveShared\BL\Constants.cs" Line="1" Column="1" />
-      <File FileName="meloveShared\meloveShared\DAL\IRemoteServices\IUserServiceRemote.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\Shuran\Desktop\Projects\Melove\meloveShared\meloveShared\VL\LoginPage_1.xaml.cs" Line="1" Column="1" />
-      <File FileName="meloveShared\meloveShared\GCL\LoginPageController.cs" Line="1" Column="1" />
+      <File FileName="meloveShared/meloveShared/DAL/IRemoteServices/IUserServiceRemote.cs" Line="1" Column="1" />
+      <File FileName="meloveShared/meloveShared/DL/RemoteServices/UserServiceRemote.cs" Line="16" Column="44" />
+      <File FileName="meloveShared/meloveShared/BL/Utilities/WebConnectUtility.cs" Line="64" Column="28" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="meloveShared" expanded="True">
+            <Node name="DL" expanded="True">
+              <Node name="RemoteServices" expanded="True">
+                <Node name="UserServiceRemote.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

@@ -7,7 +7,7 @@ namespace meloveShared.DL
 	public static class ServiceAndManagerLoader
 	{
 		//Managers
-		public static IGlobalInfoManager mGlobalInfoManager { get; private set;}
+		public static ILogicGlobalInfoManager mGlobalInfoManager { get; private set;}
 
 		//Remote Services
 		public static IUserServiceRemote mUserServiceRemote { get; private set;}
@@ -19,7 +19,7 @@ namespace meloveShared.DL
 		public static void Init()
 		{
 			//Managers
-			mGlobalInfoManager = GlobalInfoManager.mInstance;
+			mGlobalInfoManager = LogicGlobalInfoManager.mInstance;
 
 			//Remote Services
 			mUserServiceRemote = UserServiceRemote.mInstance;

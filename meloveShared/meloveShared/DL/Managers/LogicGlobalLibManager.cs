@@ -3,9 +3,9 @@ using meloveShared.DAL;
 
 namespace meloveShared.DL
 {
-	public class GlobalLibManager
+	public class LogicGlobalLibManager
 	{
-		public GlobalLibManager ()
+		public LogicGlobalLibManager ()
 		{
 		}
 	}

@@ -10,6 +10,7 @@ namespace meloveShared
 		public HomePage_1 ()
 		{
 			InitializeComponent ();
+			VLGlobalInfoManager.mInstance.mCurrentPage = CurrentPageEnum.HomePage_1;
 		}
 	}
 }

@@ -20,10 +20,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)DAL\IRemoteServices\IUserServiceRemote.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DL\GeneralServices\DatabaseService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DL\GeneralServices\UserService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DAL\IManagers\IGlobalInfoManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DAL\IManagers\IGlobalLibManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DL\Managers\GlobalInfoManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DL\Managers\GlobalLibManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DL\RemoteServices\UserServiceRemote.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DL\LocalServices\DatabaseServiceLocal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)VL\HomePage_1.xaml.cs">
@@ -39,6 +35,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)BL\DataObjects\WebObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BL\DataObjects\WebObjects\LoginRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GCL\LoginPageController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DL\Managers\LogicGlobalInfoManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DL\Managers\LogicGlobalLibManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VL\VLGlobalInfoManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DAL\IManagers\ILogicGlobalInfoManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DAL\IManagers\ILogicGlobalLibManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)BL\" />

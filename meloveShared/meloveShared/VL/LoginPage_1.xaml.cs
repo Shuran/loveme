@@ -22,9 +22,11 @@ namespace meloveShared.VL
 			//To use the initializecomponent, the xaml has to set the x:class parameter to this class
 			InitializeComponent();
 			loginPageController = new LoginPageController ();
+			VLGlobalInfoManager.mInstance.mCurrentPage = CurrentPageEnum.LoginPage_1;
 		}
 
-		// TODO-working-on: Implement the login event handler
+		// Completed: Implement the login event handler
+		// TODO-working-on: Put the LogUserInNormal task in a queue
 		void onLoginButtonClicked(object sender, EventArgs args)
 		{
 			if(loginPageController.loginFlag)
@@ -37,22 +39,12 @@ namespace meloveShared.VL
 				Task.Factory.StartNew (delegate {
 					//This comment is in a new thread
 					//Why can just use wait here: http://stackoverflow.com/questions/14230372/start-may-not-be-called-on-a-promise-style-task-exception-is-coming
-					//Even notice that the Wait() here can be ommited
+					//Even notice that the Wait() here can be ommited, because by calling the constructor, it starts automatically
 					loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text).Wait();
 				}).ContinueWith (new Action<Task> (async delegate {
 					//This comment is in the calling (UI) thread no matter there is async or not
 					await loginCallBack();
 				}),TaskScheduler.FromCurrentSynchronizationContext());
-
-				/*
-				loginPageController.logUserInNormal (xNameEntry.Text, xPasswordEntry.Text).ContinueWith (
-					new Action<Task> (async delegate {
-						//This is executed in a new thread, so the following must be commented out
-						//await loginCallBack ();
-					})
-				);
-				//loginPageController.logUserInNormal (xNameEntry.Text, xPasswordEntry.Text);
-				*/
 			}
 		}
 
@@ -67,7 +59,12 @@ namespace meloveShared.VL
 		{
 			//Completed: Open the new page upon logged in
 			//Navigation must be accessed in UI thread: http://forums.xamarin.com/discussion/19109/navigation-pushasync-not-working-with-task-run
-			await Navigation.PushAsync(new HomePage_1());
+
+			//Judge the current page to determine whether the action shall be taken
+			if (VLGlobalInfoManager.mInstance.mCurrentPage == CurrentPageEnum.LoginPage_1) 
+			{
+				await Navigation.PushAsync (new HomePage_1 ());
+			}
 			loginPageController.releaseLogInTask ();
 		}
 	}
