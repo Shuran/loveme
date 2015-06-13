@@ -1,19 +1,18 @@
 ﻿<Properties StartupItem="meloveShared/meloveShared.Droid/meloveShared.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Lollipop)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="meloveShared/meloveShared/VL/LoginPage_1.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="meloveShared/meloveShared/VL/VLGlobalInfoManager.cs">
     <Files>
-      <File FileName="meloveShared/meloveShared/DAL/IRemoteServices/IUserServiceRemote.cs" Line="10" Column="3" />
-      <File FileName="meloveShared/meloveShared/DL/RemoteServices/UserServiceRemote.cs" Line="42" Column="23" />
+      <File FileName="meloveShared/meloveShared/DAL/IRemoteServices/IUserServiceRemote.cs" Line="1" Column="1" />
+      <File FileName="meloveShared/meloveShared/DL/RemoteServices/UserServiceRemote.cs" Line="1" Column="1" />
       <File FileName="meloveShared/meloveShared/BL/Utilities/WebConnectUtility.cs" Line="1" Column="1" />
-      <File FileName="meloveShared/meloveShared/VL/HomePage_1.xaml.cs" Line="13" Column="75" />
+      <File FileName="meloveShared/meloveShared/VL/HomePage_1.xaml.cs" Line="1" Column="1" />
       <File FileName="meloveShared/meloveShared/VL/LoginPage_1.xaml.cs" Line="49" Column="5" />
-      <File FileName="meloveShared/meloveShared/DL/Managers/LogicGlobalInfoManager.cs" Line="7" Column="63" />
-      <File FileName="meloveShared/meloveShared/DL/Managers/LogicGlobalLibManager.cs" Line="6" Column="36" />
+      <File FileName="meloveShared/meloveShared/DL/Managers/LogicGlobalInfoManager.cs" Line="1" Column="1" />
       <File FileName="meloveShared/meloveShared/DL/ServiceAndManagerLoader.cs" Line="1" Column="1" />
-      <File FileName="meloveShared/meloveShared/GCL/LoginPageController.cs" Line="44" Column="26" />
+      <File FileName="meloveShared/meloveShared/GCL/LoginPageController.cs" Line="1" Column="1" />
       <File FileName="meloveShared/meloveShared/VL/VLGlobalInfoManager.cs" Line="30" Column="13" />
-      <File FileName="meloveShared/meloveShared/DAL/IManagers/ILogicGlobalInfoManager.cs" Line="7" Column="42" />
-      <File FileName="meloveShared/meloveShared/DAL/IManagers/ILogicGlobalLibManager.cs" Line="6" Column="41" />
+      <File FileName="meloveShared/meloveShared/DAL/IManagers/ILogicGlobalInfoManager.cs" Line="1" Column="1" />
+      <File FileName="meloveShared/meloveShared/DAL/IManagers/ILogicGlobalLibManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

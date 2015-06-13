@@ -36,7 +36,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)BL\DataObjects\WebObjects\LoginRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GCL\LoginPageController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DL\Managers\LogicGlobalInfoManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DL\Managers\LogicGlobalLibManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)VL\VLGlobalInfoManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DAL\IManagers\ILogicGlobalInfoManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DAL\IManagers\ILogicGlobalLibManager.cs" />
