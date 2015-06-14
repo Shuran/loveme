@@ -57,6 +57,7 @@ namespace meloveShared.BL
 			try
 			{
 				JObject pResult = await mMobileService.InvokeApiAsync<WebObject,JObject>(pWebApi,pRequest);
+				//This will be called immediately after executing the callback function in higher layers
 				return pResult;
 			}
 			catch(MobileServiceInvalidOperationException e) 

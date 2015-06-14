@@ -14,6 +14,7 @@ namespace meloveShared
 		{
 			//Completed: Initialize the environment
 			ServiceAndManagerLoader.Init();
+			LogicThreadLoader.Init();
 
 			//Completed: Create the instance of LoginPage_1
 			//Completed: Create the loginPage UI Interface

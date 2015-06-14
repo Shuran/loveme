@@ -21,10 +21,10 @@ namespace meloveShared
 			}
 		}
 
-		public CurrentPageEnum mCurrentPage;
+		public PageNameEnum mCurrentPage;
 	}
 
-	public enum CurrentPageEnum
+	public enum PageNameEnum
 	{
 		LoginPage_1,
 		HomePage_1

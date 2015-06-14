@@ -22,7 +22,11 @@ namespace meloveShared.VL
 			//To use the initializecomponent, the xaml has to set the x:class parameter to this class
 			InitializeComponent();
 			loginPageController = new LoginPageController ();
-			VLGlobalInfoManager.mInstance.mCurrentPage = CurrentPageEnum.LoginPage_1;
+		}
+
+		protected override void OnAppearing()
+		{
+			VLGlobalInfoManager.mInstance.mCurrentPage = PageNameEnum.LoginPage_1;
 		}
 
 		// Completed: Implement the login event handler
@@ -62,7 +66,7 @@ namespace meloveShared.VL
 			//Navigation must be accessed in UI thread: http://forums.xamarin.com/discussion/19109/navigation-pushasync-not-working-with-task-run
 
 			//Judge the current page to determine whether the action shall be taken
-			if (VLGlobalInfoManager.mInstance.mCurrentPage == CurrentPageEnum.LoginPage_1) 
+			if (VLGlobalInfoManager.mInstance.mCurrentPage == PageNameEnum.LoginPage_1) 
 			{
 				await Navigation.PushAsync (new HomePage_1 ());
 			}
