@@ -9,7 +9,7 @@ namespace meloveShared.GCL
 {
 	public class LoginPageController
 	{
-		public bool loginFlag;
+		public bool loginFlag { get; private set; }
 
 		public LoginPageController ()
 		{
@@ -18,13 +18,12 @@ namespace meloveShared.GCL
 
 		public async Task logUserInNormal(string pUserName, string pPassword)
 		{
-			this.loginFlag = false;
 			//TODO-suspend: Obtain the user information from remote server
 			//TODO-suspend: Construct the mGlobalInfoManager Object
 			//TODO-suspend: Construct the mUserServiceRemote Object
 			//Completed: Bind the text fields
 			//TODO: Extract the info from the returned http message and convert it to LoggedInUser
-
+			Console.WriteLine("Current Thread: "+Thread.CurrentThread.ManagedThreadId);
 			//How to deal with Json: https://components.xamarin.com/view/json.net
 			JObject loggedInUserJson = await ServiceAndManagerLoader.mUserServiceRemote.GetUserRemote(pUserName,pPassword);
 			/*
@@ -43,6 +42,11 @@ namespace meloveShared.GCL
 				//Completed: Store user info for restoration of data after RESTART
 				ServiceAndManagerLoader.mUserServiceLocal.SaveUserLocal (ServiceAndManagerLoader.mGlobalInfoManager.mCurrentUser,xPasswordEntry.Text);
 			}*/
+		}
+
+		public void lockLogInTask()
+		{
+			this.loginFlag = false;
 		}
 
 		public void releaseLogInTask()

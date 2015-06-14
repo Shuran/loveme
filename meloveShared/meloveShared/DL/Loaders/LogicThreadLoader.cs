@@ -31,6 +31,7 @@ namespace meloveShared.DL
 			(
 				() => 
 				{
+					Console.WriteLine("Logic Layer Thread Started: " + Thread.CurrentThread.ManagedThreadId);
 					foreach(var pTask in mTasks.GetConsumingEnumerable())
 					{
 						TryExecuteTask(pTask);

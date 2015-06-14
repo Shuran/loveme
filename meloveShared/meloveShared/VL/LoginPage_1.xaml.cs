@@ -38,15 +38,17 @@ namespace meloveShared.VL
 				//Use of Wait: https://msdn.microsoft.com/zh-cn/library/system.threading.tasks.task.wait(v=vs.110).aspx
 				//If we use "async" in front of delegate, the new task is constructed to be running in the calling thread, instead of a new one
 				//Callback on original thread: http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/part_5_-_practical_code_sharing_strategies/
+				loginPageController.lockLogInTask();
 
-				//Notice that completed task can not be restarted page-wise
 				Task.Factory.StartNew (delegate {
+					Console.WriteLine("Current Thread: "+Thread.CurrentThread.ManagedThreadId);
 					//This comment is in a new thread
 					//Why can just use wait here: http://stackoverflow.com/questions/14230372/start-may-not-be-called-on-a-promise-style-task-exception-is-coming
 					//Even notice that the Wait() here can be ommited, because by calling the constructor, it starts automatically
 					loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text).Start();
 					loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text).Wait();
-				}).ContinueWith (new Action<Task> (async delegate {
+				},CancellationToken.None,TaskCreationOptions.None,LogicThreadLoader.mInstance)
+				.ContinueWith (new Action<Task> (async delegate {
 					//This comment is in the calling (UI) thread no matter there is async or not
 					await loginCallBack();
 				}),TaskScheduler.FromCurrentSynchronizationContext());
