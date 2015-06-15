@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using meloveShared.DAL;
-using meloveShared.BL;
 using meloveShared.DL;
-using Newtonsoft.Json.Linq;
 using meloveShared.GCL;
 using System.Threading;
 
