@@ -8,11 +8,11 @@ namespace meloveShared.DL
 {
 	public static class LogicThreadLoader
 	{
-		public static LogicThreadTaskScheduler mInstance { get; private set; }
+		public static LogicThreadTaskScheduler mTaskScheduler { get; private set; }
 
 		public static void Init()
 		{
-			mInstance = new LogicThreadTaskScheduler();
+			mTaskScheduler = new LogicThreadTaskScheduler();
 		}
 	}
 

@@ -41,7 +41,7 @@ namespace meloveShared.VL
 					//Even notice that the Wait() here can be ommited, because by calling the constructor, it starts automatically
 					loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text).Start();
 					loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text).Wait();
-				},CancellationToken.None,TaskCreationOptions.None,LogicThreadLoader.mInstance)
+				},CancellationToken.None,TaskCreationOptions.None,LogicThreadLoader.mTaskScheduler)
 				.ContinueWith (new Action<Task> (async delegate {
 					//This comment is in the calling (UI) thread no matter there is async or not
 					await loginCallBack();
