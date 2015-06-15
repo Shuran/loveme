@@ -5,8 +5,9 @@ using System.Text;
 using Xamarin.Forms;
 using meloveShared.DL;
 using meloveShared.VL;
+using meloveShared.BL;
 
-namespace meloveShared
+namespace meloveShared.VL
 {
 	public class App : Application
 	{
@@ -15,6 +16,7 @@ namespace meloveShared
 			//Completed: Initialize the environment
 			ServiceAndManagerLoader.Init();
 			LogicThreadLoader.Init();
+			UtilitiesThreadLoader.Init();
 
 			//Completed: Create the instance of LoginPage_1
 			//Completed: Create the loginPage UI Interface

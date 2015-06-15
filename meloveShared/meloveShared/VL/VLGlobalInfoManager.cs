@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace meloveShared
+namespace meloveShared.VL
 {
 	public class VLGlobalInfoManager
 	{

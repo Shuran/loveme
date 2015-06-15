@@ -6,6 +6,7 @@ using System.Net;
 using System.IO;
 using System.Json;
 using Newtonsoft.Json.Linq;
+using System.Threading;
 
 namespace meloveShared.DL
 {
@@ -34,14 +35,18 @@ namespace meloveShared.DL
 		public async Task<JObject> GetUserRemote(string pName, string pPassword)
 		{
 			WebConnectUtility webUtil = new WebConnectUtility ();
+			JObject loginResult = null;
 
 			//Completed: Functionalize GetUser
-			LoginRequest loginRequest = new LoginRequest (pName, pPassword); 
-			JObject loginResult = await webUtil.WebAzurePost("LoginRequest",loginRequest);
+			LoginRequest loginRequest = new LoginRequest (pName, pPassword);
+
+			Task.Factory.StartNew (async delegate {
+				Console.WriteLine("Current Thread (GetUserRemote): "+Thread.CurrentThread.ManagedThreadId);
+				loginResult = await webUtil.WebAzurePost ("LoginRequest", loginRequest);
+			}, CancellationToken.None, TaskCreationOptions.None, UtilitiesThreadLoader.mWebThreadTaskScheduler).Wait();
+
 			Console.WriteLine (loginResult.ToString ());
 			return loginResult;
-
-			//return new User ("name", "pd");
 		}
 	}
 }

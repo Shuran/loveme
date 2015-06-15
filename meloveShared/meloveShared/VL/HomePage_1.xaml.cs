@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace meloveShared
+namespace meloveShared.VL
 {
 	public partial class HomePage_1 : ContentPage
 	{
