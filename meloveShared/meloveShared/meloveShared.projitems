@@ -38,7 +38,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)VL\VLGlobalInfoManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DAL\IManagers\ILogicGlobalInfoManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DAL\IManagers\ILogicGlobalLibManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GCL\Managers\LogicTaskManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DL\Loaders\ServiceAndManagerLoader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DL\Loaders\LogicThreadLoader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BL\Loaders\UtilitiesThreadLoader.cs" />
@@ -59,7 +58,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)BL\Utilities\" />
     <Folder Include="$(MSBuildThisFileDirectory)BL\DataObjects\WebObjects\" />
     <Folder Include="$(MSBuildThisFileDirectory)GCL\" />
-    <Folder Include="$(MSBuildThisFileDirectory)GCL\Managers\" />
     <Folder Include="$(MSBuildThisFileDirectory)DL\Loaders\" />
     <Folder Include="$(MSBuildThisFileDirectory)BL\Loaders\" />
   </ItemGroup>
