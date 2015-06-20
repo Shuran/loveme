@@ -4,19 +4,21 @@ using meloveShared.DL;
 using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using meloveShared.DAL;
 
 namespace meloveShared.GCL
 {
 	public class LoginPageController
 	{
 		public bool loginFlag { get; private set; }
+		public IUserServiceRemote mUserServiceRemote = ServiceAndManagerLoader.mUserServiceRemote;
 
 		public LoginPageController ()
 		{
 			this.loginFlag = true;
 		}
 
-		public async Task logUserInNormal(string pUserName, string pPassword)
+		public void logUserInNormal(string pUserName, string pPassword)
 		{
 			//TODO-suspend: Obtain the user information from remote server
 			//TODO-suspend: Construct the mGlobalInfoManager Object
@@ -24,8 +26,18 @@ namespace meloveShared.GCL
 			//Completed: Bind the text fields
 			//TODO: Extract the info from the returned http message and convert it to LoggedInUser
 			Console.WriteLine("Current Thread: "+Thread.CurrentThread.ManagedThreadId);
+
+			//Set-up callback first
+			mUserServiceRemote.SetUserRemoteCallback(new GetUserRemoteCallBack(logInUserNormalCallback));
+
 			//How to deal with Json: https://components.xamarin.com/view/json.net
-			JObject loggedInUserJson = await ServiceAndManagerLoader.mUserServiceRemote.GetUserRemote(pUserName,pPassword);
+			mUserServiceRemote.GetUserRemote(pUserName,pPassword);
+		}
+
+		private void logInUserNormalCallback(JObject loginResult)
+		{
+			Console.WriteLine("Current Thread: (logInUserNormalCallback)"+Thread.CurrentThread.ManagedThreadId);
+			Console.WriteLine ("logInUserNormalCallback:"+loginResult.ToString());
 			/*
 			if (!isLoginJsonValid(loggedInUserJson)) 
 			{

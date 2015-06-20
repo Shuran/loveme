@@ -1,45 +1,22 @@
 ﻿<Properties StartupItem="meloveShared/meloveShared.Droid/meloveShared.Droid.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Lollipop)" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="meloveShared/meloveShared/DL/Loaders/LogicThreadLoader.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="meloveShared/meloveShared/BL/Utilities/WebConnectUtility.cs">
     <Files>
-      <File FileName="meloveShared/meloveShared/DL/Loaders/LogicThreadLoader.cs" Line="35" Column="40" />
+      <File FileName="meloveShared/meloveShared/DL/Loaders/LogicThreadLoader.cs" Line="34" Column="27" />
+      <File FileName="meloveShared/meloveShared/BL/Loaders/UtilitiesThreadLoader.cs" Line="1" Column="1" />
+      <File FileName="meloveShared/meloveShared/VL/VLGlobalInfoManager.cs" Line="1" Column="1" />
+      <File FileName="meloveShared/meloveShared/VL/LoginPage_1.xaml.cs" Line="17" Column="14" />
       <File FileName="meloveShared/meloveShared/DL/Loaders/ServiceAndManagerLoader.cs" Line="1" Column="1" />
-      <File FileName="meloveShared/meloveShared/BL/Loaders/UtilitiesThreadLoader.cs" Line="8" Column="4" />
-      <File FileName="meloveShared/meloveShared/GCL/Managers/LogicTaskManager.cs" Line="28" Column="1" />
-      <File FileName="meloveShared/meloveShared/App.cs" Line="17" Column="24" />
-      <File FileName="meloveShared/meloveShared/VL/LoginPage_1.xaml.cs" Line="44" Column="41" />
-      <File FileName="meloveShared/meloveShared/VL/HomePage_1.xaml.cs" Line="18" Column="4" />
+      <File FileName="meloveShared/meloveShared/VL/HomePage_1.xaml.cs" Line="1" Column="1" />
+      <File FileName="meloveShared/meloveShared/VL/LoginPage_1.xaml" Line="1" Column="1" />
+      <File FileName="meloveShared/meloveShared/VL/HomePage_1.xaml" Line="1" Column="1" />
+      <File FileName="meloveShared/meloveShared/App.cs" Line="1" Column="1" />
+      <File FileName="meloveShared/meloveShared.Droid/MainActivity.cs" Line="1" Column="1" />
+      <File FileName="meloveShared/meloveShared/BL/Utilities/WebConnectUtility.cs" Line="66" Column="17" />
+      <File FileName="meloveShared/meloveShared/BL/Utilities/PasswordUtility.cs" Line="1" Column="1" />
+      <File FileName="meloveShared/meloveShared/DL/RemoteServices/UserServiceRemote.cs" Line="1" Column="1" />
       <File FileName="meloveShared/meloveShared/GCL/LoginPageController.cs" Line="16" Column="26" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="meloveShared" expanded="True">
-            <Node name="BL" expanded="True">
-              <Node name="Loaders" expanded="True" />
-              <Node name="Utilities" expanded="True" />
-            </Node>
-            <Node name="DL" expanded="True">
-              <Node name="Loaders" expanded="True">
-                <Node name="LogicThreadLoader.cs" selected="True" />
-              </Node>
-              <Node name="Managers" expanded="True" />
-              <Node name="RemoteServices" expanded="True" />
-            </Node>
-            <Node name="GCL" expanded="True">
-              <Node name="Managers" expanded="True" />
-            </Node>
-            <Node name="VL" expanded="True">
-              <Node name="HomePage_1.xaml" expanded="True" />
-              <Node name="LoginPage_1.xaml" expanded="True" />
-            </Node>
-          </Node>
-          <Node name="meloveShared.Droid" expanded="True">
-            <Node name="References" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

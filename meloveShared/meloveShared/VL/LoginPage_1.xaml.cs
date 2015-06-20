@@ -39,8 +39,8 @@ namespace meloveShared.VL
 					//This comment is in a new thread
 					//Why can just use wait here: http://stackoverflow.com/questions/14230372/start-may-not-be-called-on-a-promise-style-task-exception-is-coming
 					//Even notice that the Wait() here can be ommited, because by calling the constructor, it starts automatically
-					loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text).Start();
-					loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text).Wait();
+					//TODO-completed: Start() and Wait() are deleted because the function is no longer async.
+					loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text);
 				},CancellationToken.None,TaskCreationOptions.None,LogicThreadLoader.mTaskScheduler)
 				.ContinueWith (new Action<Task> (async delegate {
 					//This comment is in the calling (UI) thread no matter there is async or not

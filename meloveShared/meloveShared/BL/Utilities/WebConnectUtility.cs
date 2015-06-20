@@ -52,18 +52,19 @@ namespace meloveShared.BL
 		}
 
 		//TODO-working: Make the input parameters and returned data more specific to the defined type
-		public async Task<JObject> WebAzurePost(string pWebApi, WebObject pRequest)
+		public async Task WebAzurePost(string pWebApi, WebObject pRequest)
 		{
 			try
 			{
 				JObject pResult = await mMobileService.InvokeApiAsync<WebObject,JObject>(pWebApi,pRequest);
-				//This will be called immediately after executing the callback function in higher layers
-				return pResult;
+				Console.WriteLine("Current Thread: (WebAzurePost)"+Thread.CurrentThread.ManagedThreadId);
+				Task.Factory.StartNew( delegate {
+					Console.WriteLine("Current Thread: (WebAzurePost)"+Thread.CurrentThread.ManagedThreadId);
+				}, CancellationToken.None, TaskCreationOptions.None, meloveShared.DL.LogicThreadLoader.mTaskScheduler);
 			}
 			catch(MobileServiceInvalidOperationException e) 
 			{
 				Console.WriteLine (e.Message);
-				return null;
 			}
 		}
 

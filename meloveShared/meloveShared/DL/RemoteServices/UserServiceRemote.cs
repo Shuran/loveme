@@ -10,10 +10,14 @@ using System.Threading;
 
 namespace meloveShared.DL
 {
+	public delegate void GetUserRemoteCallBack(JObject pLoginResult);
+
 	public class UserServiceRemote : UserService, IUserServiceRemote
 	{
 		//Singleton Set-up
 		private static UserServiceRemote mUserServiceRemote;
+		public GetUserRemoteCallBack getUserRemoteCallBack;
+
 		public static UserServiceRemote mInstance
 		{
 			get
@@ -31,22 +35,31 @@ namespace meloveShared.DL
 		}
 
 		//Implementation of interface
-		//TODO: Make the returned data more of the specific type
-		public async Task<JObject> GetUserRemote(string pName, string pPassword)
+		public void GetUserRemote(string pName, string pPassword)
 		{
 			WebConnectUtility webUtil = new WebConnectUtility ();
 			JObject loginResult = null;
 
 			//Completed: Functionalize GetUser
 			LoginRequest loginRequest = new LoginRequest (pName, pPassword);
-
-			Task.Factory.StartNew (async delegate {
+			Console.WriteLine("Current Thread (GetUserRemoteFirst): "+Thread.CurrentThread.ManagedThreadId);
+			//For the delegate below, if there is an await inside, the continuation function will execute immediately, and hence not suggested
+			Task.Factory.StartNew (delegate {
 				Console.WriteLine("Current Thread (GetUserRemote): "+Thread.CurrentThread.ManagedThreadId);
-				loginResult = await webUtil.WebAzurePost ("LoginRequest", loginRequest);
-			}, CancellationToken.None, TaskCreationOptions.None, UtilitiesThreadLoader.mWebThreadTaskScheduler).Wait();
+				webUtil.WebAzurePost ("LoginRequest", loginRequest).Start();
+			}, CancellationToken.None, TaskCreationOptions.None, UtilitiesThreadLoader.mWebThreadTaskScheduler)
+			.ContinueWith(new Action<Task> ( delegate {
+				/*
+				Console.WriteLine("Current Thread (GetUserRemote Callback): "+Thread.CurrentThread.ManagedThreadId);
+				Console.WriteLine (loginResult.ToString ());
+				getUserRemoteCallBack(loginResult);
+				*/
+			}),LogicThreadLoader.mTaskScheduler);
+		}
 
-			Console.WriteLine (loginResult.ToString ());
-			return loginResult;
+		public void SetUserRemoteCallback(GetUserRemoteCallBack pCallbackDel)
+		{
+			getUserRemoteCallBack = pCallbackDel;
 		}
 	}
 }
