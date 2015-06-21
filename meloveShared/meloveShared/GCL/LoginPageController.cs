@@ -12,6 +12,7 @@ namespace meloveShared.GCL
 	{
 		public bool loginFlag { get; private set; }
 		public IUserServiceRemote mUserServiceRemote = ServiceAndManagerLoader.mUserServiceRemote;
+		public VoidCallback logUserInCallback;
 
 		public LoginPageController ()
 		{
@@ -34,10 +35,16 @@ namespace meloveShared.GCL
 			mUserServiceRemote.GetUserRemote(pUserName,pPassword);
 		}
 
-		private void logInUserNormalCallback(JObject loginResult)
+		void logInUserNormalCallback(JObject loginResult)
 		{
 			Console.WriteLine("Current Thread: (logInUserNormalCallback)"+Thread.CurrentThread.ManagedThreadId);
 			Console.WriteLine ("logInUserNormalCallback:"+loginResult.ToString());
+
+			Task.Factory.StartNew (delegate {
+				Console.WriteLine("Current Thread: (Should be on UI Thread)"+Thread.CurrentThread.ManagedThreadId);
+				logUserInCallback ();
+			}, CancellationToken.None, TaskCreationOptions.None, meloveShared.VL.UIThreadLoader.mUIThreadTaskScheduler);
+
 			/*
 			if (!isLoginJsonValid(loggedInUserJson)) 
 			{
@@ -54,6 +61,11 @@ namespace meloveShared.GCL
 				//Completed: Store user info for restoration of data after RESTART
 				ServiceAndManagerLoader.mUserServiceLocal.SaveUserLocal (ServiceAndManagerLoader.mGlobalInfoManager.mCurrentUser,xPasswordEntry.Text);
 			}*/
+		}
+
+		public void SetLogInUserNormalCallback(VoidCallback pLogUserInCallback)
+		{
+			logUserInCallback = pLogUserInCallback;
 		}
 
 		public void lockLogInTask()

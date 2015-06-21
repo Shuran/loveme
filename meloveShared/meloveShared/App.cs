@@ -15,6 +15,7 @@ namespace meloveShared.VL
 		{
 			//Completed: Initialize the environment
 			ServiceAndManagerLoader.Init();
+			UIThreadLoader.Init();
 			LogicThreadLoader.Init();
 			UtilitiesThreadLoader.Init();
 

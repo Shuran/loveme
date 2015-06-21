@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace meloveShared.DL
 {
+	public delegate void VoidCallback();
 	public delegate void WebCallback(JObject pWebResult);
 
 	public class LogicGlobalInfoManager : ILogicGlobalInfoManager

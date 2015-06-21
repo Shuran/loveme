@@ -32,16 +32,15 @@ namespace meloveShared.VL
 				//Use of Wait: https://msdn.microsoft.com/zh-cn/library/system.threading.tasks.task.wait(v=vs.110).aspx
 				//Callback on original thread: http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/part_5_-_practical_code_sharing_strategies/
 				loginPageController.lockLogInTask();
+				Console.WriteLine("UI Thread: "+Thread.CurrentThread.ManagedThreadId);
 
 				Task.Factory.StartNew (delegate {
 					Console.WriteLine("Current Thread: "+Thread.CurrentThread.ManagedThreadId);
 					//This comment is in a new thread, and notice there shouldn't be any await here, otherwise the continuewith function 
 					//will be executed immediately (the task returns immediately)
+					loginPageController.SetLogInUserNormalCallback(new VoidCallback(loginCallBack));
 					loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text);
-				},CancellationToken.None,TaskCreationOptions.None,LogicThreadLoader.mTaskScheduler)
-				.ContinueWith (new Action<Task> (async delegate {
-					await loginCallBack();
-				}),TaskScheduler.FromCurrentSynchronizationContext());
+				}, CancellationToken.None, TaskCreationOptions.None, LogicThreadLoader.mTaskScheduler);
 			}
 		}
 
@@ -52,7 +51,7 @@ namespace meloveShared.VL
 		}
 
 		//When will the callback be executed: http://stackoverflow.com/questions/11397163/continuewith-a-task-on-the-main-thread
-		async Task loginCallBack()
+		void loginCallBack()
 		{
 			//Completed: Open the new page upon logged in
 			//Navigation must be accessed in UI thread: http://forums.xamarin.com/discussion/19109/navigation-pushasync-not-working-with-task-run
@@ -60,7 +59,8 @@ namespace meloveShared.VL
 			//Judge the current page to determine whether the action shall be taken
 			if (VLGlobalInfoManager.mInstance.mCurrentPage == PageNameEnum.LoginPage_1) 
 			{
-				await Navigation.PushAsync (new HomePage_1 ());
+				Navigation.PushAsync (new HomePage_1 ());
+				Console.WriteLine("Login Page is Pushed");
 			}
 			loginPageController.releaseLogInTask ();
 		}

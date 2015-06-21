@@ -42,6 +42,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DL\Loaders\LogicThreadLoader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BL\Loaders\UtilitiesThreadLoader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BL\Managers\BLInfoManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VL\Loaders\UIThreadLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)BL\" />
@@ -62,6 +63,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)DL\Loaders\" />
     <Folder Include="$(MSBuildThisFileDirectory)BL\Loaders\" />
     <Folder Include="$(MSBuildThisFileDirectory)BL\Managers\" />
+    <Folder Include="$(MSBuildThisFileDirectory)VL\Loaders\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)VL\LoginPage_1.xaml">
