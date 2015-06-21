@@ -28,7 +28,7 @@ namespace meloveShared.GCL
 			Console.WriteLine("Current Thread: "+Thread.CurrentThread.ManagedThreadId);
 
 			//Set-up callback first
-			mUserServiceRemote.SetUserRemoteCallback(new GetUserRemoteCallBack(logInUserNormalCallback));
+			mUserServiceRemote.SetUserRemoteCallback(new WebCallback(logInUserNormalCallback));
 
 			//How to deal with Json: https://components.xamarin.com/view/json.net
 			mUserServiceRemote.GetUserRemote(pUserName,pPassword);

@@ -1,9 +1,12 @@
 ﻿using System;
 using meloveShared.DAL;
 using meloveShared.BL;
+using Newtonsoft.Json.Linq;
 
 namespace meloveShared.DL
 {
+	public delegate void WebCallback(JObject pWebResult);
+
 	public class LogicGlobalInfoManager : ILogicGlobalInfoManager
 	{
 		//Singleton Set-up

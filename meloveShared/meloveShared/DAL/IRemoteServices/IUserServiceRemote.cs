@@ -9,7 +9,7 @@ namespace meloveShared.DAL
 	public interface IUserServiceRemote : IUserService
 	{
 		void GetUserRemote(string pName, string pPassword);
-		void SetUserRemoteCallback(GetUserRemoteCallBack pCallback);
+		void SetUserRemoteCallback(WebCallback pCallback);
 	}
 }
 

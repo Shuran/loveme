@@ -10,13 +10,10 @@ using System.Threading;
 
 namespace meloveShared.DL
 {
-	public delegate void GetUserRemoteCallBack(JObject pLoginResult);
-
 	public class UserServiceRemote : UserService, IUserServiceRemote
 	{
 		//Singleton Set-up
 		private static UserServiceRemote mUserServiceRemote;
-		public GetUserRemoteCallBack getUserRemoteCallBack;
 
 		public static UserServiceRemote mInstance
 		{
@@ -34,30 +31,27 @@ namespace meloveShared.DL
 			
 		}
 
+		public WebCallback getUserRemoteCallBack;
+
 		//Implementation of interface
 		public void GetUserRemote(string pName, string pPassword)
 		{
 			WebConnectUtility webUtil = new WebConnectUtility ();
-			JObject loginResult = null;
 
 			//Completed: Functionalize GetUser
 			LoginRequest loginRequest = new LoginRequest (pName, pPassword);
 			Console.WriteLine("Current Thread (GetUserRemoteFirst): "+Thread.CurrentThread.ManagedThreadId);
 			//For the delegate below, if there is an await inside, the continuation function will execute immediately, and hence not suggested
+
 			Task.Factory.StartNew (delegate {
-				Console.WriteLine("Current Thread (GetUserRemote): "+Thread.CurrentThread.ManagedThreadId);
-				webUtil.WebAzurePost ("LoginRequest", loginRequest).Start();
-			}, CancellationToken.None, TaskCreationOptions.None, UtilitiesThreadLoader.mWebThreadTaskScheduler)
-			.ContinueWith(new Action<Task> ( delegate {
-				/*
-				Console.WriteLine("Current Thread (GetUserRemote Callback): "+Thread.CurrentThread.ManagedThreadId);
-				Console.WriteLine (loginResult.ToString ());
-				getUserRemoteCallBack(loginResult);
-				*/
-			}),LogicThreadLoader.mTaskScheduler);
+				Console.WriteLine ("Current Thread (GetUserRemote): " + Thread.CurrentThread.ManagedThreadId);
+				webUtil.SetWebCallback(new BL_WebCallback((WebCallback)getUserRemoteCallBack.Clone()));
+				//Can't use continuewith here because Start() is similar to "await" and returns immediately
+				webUtil.WebAzurePost ("LoginRequest", loginRequest).Start ();
+			}, CancellationToken.None, TaskCreationOptions.None, UtilitiesThreadLoader.mWebThreadTaskScheduler);
 		}
 
-		public void SetUserRemoteCallback(GetUserRemoteCallBack pCallbackDel)
+		public void SetUserRemoteCallback(WebCallback pCallbackDel)
 		{
 			getUserRemoteCallBack = pCallbackDel;
 		}

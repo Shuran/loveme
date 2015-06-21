@@ -12,6 +12,8 @@ namespace meloveShared.BL
 {
 	public class WebConnectUtility
 	{
+		public BL_WebCallback mWebCallBack;
+
 		public static MobileServiceClient mMobileService = new MobileServiceClient
 		(
 				Constants.mServerUrl,
@@ -60,6 +62,7 @@ namespace meloveShared.BL
 				Console.WriteLine("Current Thread: (WebAzurePost)"+Thread.CurrentThread.ManagedThreadId);
 				Task.Factory.StartNew( delegate {
 					Console.WriteLine("Current Thread: (WebAzurePost)"+Thread.CurrentThread.ManagedThreadId);
+					mWebCallBack(pResult);
 				}, CancellationToken.None, TaskCreationOptions.None, meloveShared.DL.LogicThreadLoader.mTaskScheduler);
 			}
 			catch(MobileServiceInvalidOperationException e) 
@@ -68,6 +71,10 @@ namespace meloveShared.BL
 			}
 		}
 
+		public void SetWebCallback(BL_WebCallback pBL_WebCallback)
+		{
+			mWebCallBack = pBL_WebCallback;
+		}
 	}
 }
 
