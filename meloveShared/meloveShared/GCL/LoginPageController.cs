@@ -12,7 +12,7 @@ namespace meloveShared.GCL
 	{
 		public bool loginFlag { get; private set; }
 		public IUserServiceRemote mUserServiceRemote = ServiceAndManagerLoader.mUserServiceRemote;
-		public VoidCallback logUserInCallback;
+		public AsyncVoidCallback logUserInCallback;
 
 		public LoginPageController ()
 		{
@@ -63,7 +63,7 @@ namespace meloveShared.GCL
 			}*/
 		}
 
-		public void SetLogInUserNormalCallback(VoidCallback pLogUserInCallback)
+		public void SetLogInUserNormalCallback(AsyncVoidCallback pLogUserInCallback)
 		{
 			logUserInCallback = pLogUserInCallback;
 		}

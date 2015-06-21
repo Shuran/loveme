@@ -38,7 +38,7 @@ namespace meloveShared.VL
 					Console.WriteLine("Current Thread: "+Thread.CurrentThread.ManagedThreadId);
 					//This comment is in a new thread, and notice there shouldn't be any await here, otherwise the continuewith function 
 					//will be executed immediately (the task returns immediately)
-					loginPageController.SetLogInUserNormalCallback(new VoidCallback(loginCallBack));
+					loginPageController.SetLogInUserNormalCallback(new AsyncVoidCallback(loginCallBack));
 					loginPageController.logUserInNormal(xNameEntry.Text,xPasswordEntry.Text);
 				}, CancellationToken.None, TaskCreationOptions.None, LogicThreadLoader.mTaskScheduler);
 			}
@@ -51,7 +51,7 @@ namespace meloveShared.VL
 		}
 
 		//When will the callback be executed: http://stackoverflow.com/questions/11397163/continuewith-a-task-on-the-main-thread
-		void loginCallBack()
+		async Task loginCallBack()
 		{
 			//Completed: Open the new page upon logged in
 			//Navigation must be accessed in UI thread: http://forums.xamarin.com/discussion/19109/navigation-pushasync-not-working-with-task-run
@@ -59,7 +59,7 @@ namespace meloveShared.VL
 			//Judge the current page to determine whether the action shall be taken
 			if (VLGlobalInfoManager.mInstance.mCurrentPage == PageNameEnum.LoginPage_1) 
 			{
-				Navigation.PushAsync (new HomePage_1 ());
+				await Navigation.PushAsync (new HomePage_1 ());
 				Console.WriteLine("Login Page is Pushed");
 			}
 			loginPageController.releaseLogInTask ();
