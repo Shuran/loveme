@@ -2,11 +2,15 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (Lollipop)" />
   <MonoDevelop.Ide.Workbench ActiveDocument="meloveShared/meloveShared/VL/LoginPage_1.xaml.cs">
     <Files>
-      <File FileName="meloveShared/meloveShared/DL/RemoteServices/UserServiceRemote.cs" Line="50" Column="65" />
-      <File FileName="meloveShared/meloveShared/GCL/LoginPageController.cs" Line="55" Column="16" />
-      <File FileName="meloveShared/meloveShared/BL/Utilities/WebConnectUtility.cs" Line="64" Column="23" />
-      <File FileName="meloveShared/meloveShared/BL/Managers/BLInfoManager.cs" Line="5" Column="58" />
-      <File FileName="meloveShared/meloveShared/VL/LoginPage_1.xaml.cs" Line="43" Column="28" />
+      <File FileName="meloveShared/meloveShared/DL/RemoteServices/UserServiceRemote.cs" Line="54" Column="55" />
+      <File FileName="meloveShared/meloveShared/GCL/LoginPageController.cs" Line="66" Column="59" />
+      <File FileName="meloveShared/meloveShared/BL/Utilities/WebConnectUtility.cs" Line="72" Column="4" />
+      <File FileName="meloveShared/meloveShared/VL/LoginPage_1.xaml.cs" Line="62" Column="11" />
+      <File FileName="meloveShared/meloveShared/VL/VLGlobalInfoManager.cs" Line="4" Column="2" />
+      <File FileName="meloveShared/meloveShared/DL/Managers/LogicGlobalInfoManager.cs" Line="9" Column="23" />
+      <File FileName="meloveShared/meloveShared/VL/Loaders/UIThreadLoader.cs" Line="12" Column="28" />
+      <File FileName="meloveShared/meloveShared/BL/Loaders/UtilitiesThreadLoader.cs" Line="1" Column="1" />
+      <File FileName="meloveShared/meloveShared/App.cs" Line="19" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

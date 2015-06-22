@@ -60,15 +60,28 @@ namespace meloveShared.BL
 			{
 				JObject pResult = await mMobileService.InvokeApiAsync<WebObject,JObject>(pWebApi,pRequest);
 				Console.WriteLine("Current Thread: (WebAzurePost)"+Thread.CurrentThread.ManagedThreadId);
-				Task.Factory.StartNew( delegate {
-					Console.WriteLine("Current Thread: (WebAzurePost)"+Thread.CurrentThread.ManagedThreadId);
-					mWebCallBack(pResult);
-				}, CancellationToken.None, TaskCreationOptions.None, meloveShared.DL.LogicThreadLoader.mTaskScheduler);
+				WebAzurePost_Sub (pResult);
 			}
 			catch(MobileServiceInvalidOperationException e) 
 			{
-				Console.WriteLine (e.Message);
+				Console.WriteLine ("Exception: " + e.Message);
+				JObject pResult = JObject.Parse (@"{Exception: 'MobileServiceInvalidOperationException'}");
+				WebAzurePost_Sub (pResult);
 			}
+			catch(WebException e) 
+			{
+				Console.WriteLine ("Exception: " + e.Message);
+				JObject pResult = JObject.Parse (@"{Exception: 'WebException'}");
+				WebAzurePost_Sub (pResult);
+			}
+		}
+
+		void WebAzurePost_Sub(JObject pResult)
+		{
+			Task.Factory.StartNew( delegate {
+				Console.WriteLine("Current Thread: (WebAzurePost)"+Thread.CurrentThread.ManagedThreadId);
+				mWebCallBack(pResult);
+			}, CancellationToken.None, TaskCreationOptions.None, meloveShared.DL.LogicThreadLoader.mTaskScheduler);
 		}
 
 		public void SetWebCallback(BL_WebCallback pBL_WebCallback)

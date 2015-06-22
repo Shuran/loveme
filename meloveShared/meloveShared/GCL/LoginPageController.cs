@@ -42,7 +42,18 @@ namespace meloveShared.GCL
 
 			Task.Factory.StartNew (delegate {
 				Console.WriteLine("Current Thread: (Should be on UI Thread)"+Thread.CurrentThread.ManagedThreadId);
-				logUserInCallback ();
+				if(loginResult.SelectToken("Exception") == null)
+				{
+					logUserInCallback ();
+				} else if ( (string)loginResult.SelectToken("Exception") == "MobileServiceInvalidOperationException" )
+				{
+					Console.WriteLine("MobileServiceInvalidOperationException Occured");
+					//TODO: Fine-tune the callback structure here
+				} else if ( (string)loginResult.SelectToken("Exception") == "WebException" )
+				{
+					Console.WriteLine("WebException Occured");
+					//TODO: Fine-tune the callback structure here
+				}
 			}, CancellationToken.None, TaskCreationOptions.None, meloveShared.VL.UIThreadLoader.mUIThreadTaskScheduler);
 
 			/*
