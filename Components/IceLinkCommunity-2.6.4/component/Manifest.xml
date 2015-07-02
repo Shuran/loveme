@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<component format="1" id="IceLinkCommunity">
+  <name>IceLink Community</name>
+  <publisher>Frozen Mountain Software</publisher>
+  <publisher-url>http://www.frozenmountain.com/</publisher-url>
+  <version>2.6.4</version>
+  <summary>WebRTC-based peer-to-peer (P2P) audio/video and data streaming.</summary>
+  <screenshots>
+    <img src="screenshots/screenshot.jpg" title="screenshot" />
+  </screenshots>
+  <samples>
+    <sample id="Xamarin.Android.Conference.WebRTC">
+      <name>Android Video Chat</name>
+      <summary>Android Video Chat</summary>
+    </sample>
+    <sample id="Xamarin.Android.VideoTest">
+      <name>Android Video Loop</name>
+      <summary>Android Video Loop</summary>
+    </sample>
+    <sample id="Xamarin.iOS.Conference.WebRTC">
+      <name>iOS Video Chat</name>
+      <summary>iOS Video Chat</summary>
+    </sample>
+    <sample id="Xamarin.iOS.VideoTest">
+      <name>iOS Video Loop</name>
+      <summary>iOS Video Loop</summary>
+    </sample>
+    <sample id="Xamarin.Mac.Conference.WebRTC">
+      <name>Mac Video Chat</name>
+      <summary>Mac Video Chat</summary>
+    </sample>
+    <sample id="Xamarin.Mac.VideoTest">
+      <name>Mac Video Loop</name>
+      <summary>Mac Video Loop</summary>
+    </sample>
+  </samples>
+</component>
