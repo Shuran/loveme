@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using meloveShared.BL;
 using meloveShared.DAL;
 using Xamarin.Forms;
-using meloveShared.BL;
 
 namespace meloveShared.DL
 {
